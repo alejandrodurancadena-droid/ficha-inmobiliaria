@@ -47,3 +47,30 @@ if (exportarBtn && ficha) {
     link.click();
   });
 }
+// ===============================
+// IndexedDB - Base de datos
+// ===============================
+
+let db;
+
+const request = indexedDB.open("fichaInmobiliariaDB", 1);
+
+request.onupgradeneeded = (e) => {
+  db = e.target.result;
+
+  if (!db.objectStoreNames.contains("propiedades")) {
+    const store = db.createObjectStore("propiedades", {
+      keyPath: "id",
+      autoIncrement: true
+    });
+  }
+};
+
+request.onsuccess = (e) => {
+  db = e.target.result;
+  console.log("IndexedDB lista");
+};
+
+request.onerror = (e) => {
+  console.error("Error IndexedDB", e);
+};
