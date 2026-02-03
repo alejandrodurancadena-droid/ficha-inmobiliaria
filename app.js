@@ -26,8 +26,32 @@ if (fotosInput) {
 
 if (saveBtn) {
   saveBtn.addEventListener("click", () => {
+  if (!db) {
+    alert("La base de datos no está lista");
+    return;
+  }
+
+  const propiedad = {
+    precio: document.querySelector('input[placeholder="$"]').value,
+    habitaciones: document.querySelectorAll('input[type="number"]')[1].value,
+    banos: document.querySelectorAll('input[type="number"]')[2].value,
+    parqueaderos: document.querySelectorAll('input[type="number"]')[3].value,
+    descripcion: document.querySelector("textarea").value,
+    fecha: new Date().toISOString()
+  };
+
+  const transaction = db.transaction("propiedades", "readwrite");
+  const store = transaction.objectStore("propiedades");
+  store.add(propiedad);
+
+  transaction.oncomplete = () => {
     alert("Propiedad guardada correctamente (modo offline)");
-  });
+  };
+
+  transaction.onerror = () => {
+    alert("Error al guardar la propiedad");
+  };
+});
 }
 // EXPORTAR FICHA A JPG
 const exportarBtn = document.getElementById("exportar");
