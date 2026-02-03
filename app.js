@@ -28,3 +28,22 @@ if (saveBtn) {
     alert("Propiedad guardada correctamente (modo offline)");
   });
 }
+// EXPORTAR FICHA A JPG
+const exportarBtn = document.getElementById("exportar");
+const ficha = document.getElementById("ficha");
+
+if (exportarBtn && ficha) {
+  exportarBtn.addEventListener("click", async () => {
+    ficha.style.display = "block";
+
+    const canvas = await html2canvas(ficha, {
+      scale: 2,
+      useCORS: true
+    });
+
+    const link = document.createElement("a");
+    link.download = "ficha-inmobiliaria.jpg";
+    link.href = canvas.toDataURL("image/jpeg", 0.95);
+    link.click();
+  });
+}
