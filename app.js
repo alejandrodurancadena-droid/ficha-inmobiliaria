@@ -72,5 +72,33 @@ request.onsuccess = (e) => {
 };
 
 request.onerror = (e) => {
+const saveBtn = document.getElementById("saveBtn");
+
+if (saveBtn) {
+  saveBtn.addEventListener("click", () => {
+
+    const propiedad = {
+      precio: document.querySelector('input[placeholder="$"]').value,
+      habitaciones: document.querySelectorAll('input[type="number"]')[1].value,
+      banos: document.querySelectorAll('input[type="number"]')[2].value,
+      parqueaderos: document.querySelectorAll('input[type="number"]')[3].value,
+      descripcion: document.querySelector("textarea").value,
+      fecha: new Date().toISOString()
+    };
+
+    const tx = db.transaction("propiedades", "readwrite");
+    const store = tx.objectStore("propiedades");
+    store.add(propiedad);
+
+    tx.oncomplete = () => {
+      alert("Propiedad guardada correctamente (IndexedDB)");
+    };
+
+    tx.onerror = () => {
+      alert("Error al guardar la propiedad");
+    };
+
+  });
+}
   console.error("Error IndexedDB", e);
 };
