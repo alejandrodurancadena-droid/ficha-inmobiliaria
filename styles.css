@@ -1,0 +1,59 @@
+:root {
+  --color-primario: #0d3b66;
+  --color-secundario: #f4f6f8;
+  --color-texto: #222;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--color-secundario);
+  color: var(--color-texto);
+}
+
+.app-header {
+  background: var(--color-primario);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+}
+
+.form-card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: auto;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: var(--color-primario);
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
