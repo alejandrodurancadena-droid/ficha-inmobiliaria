@@ -1,3 +1,4 @@
+alert("app. js cargando");
 const preview = document.getElementById("preview");
 const fotosInput = document.getElementById("fotos");
 const saveBtn = document.getElementById("saveBtn");
