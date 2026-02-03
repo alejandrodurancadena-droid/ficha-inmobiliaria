@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ficha Inmobiliaria</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <h1>Ficha Inmobiliaria</h1>
+    <p>Creador profesional de fichas</p>
+  </header>
+
+  <main class="container">
+
+    <section class="form-card">
+      <h2>Nueva Propiedad</h2>
+
+      <label>Precio</label>
+      <input type="number" placeholder="$">
+
+      <label>Habitaciones</label>
+      <input type="number">
+
+      <label>Baños</label>
+      <input type="number">
+
+      <label>Parqueaderos</label>
+      <input type="number">
+
+      <label>Descripción</label>
+      <textarea rows="4"></textarea>
+
+      <button id="saveBtn">Guardar propiedad</button>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
