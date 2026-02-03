@@ -1,12 +1,10 @@
 {
   "name": "Ficha Inmobiliaria",
   "short_name": "Ficha Inmo",
-  "description": "Creador profesional de fichas inmobiliarias offline",
-  "start_url": "/ficha-inmobiliaria/",
-  "scope": "/ficha-inmobiliaria/",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#2c7be5",
+  "theme_color": "#1f6feb",
   "orientation": "portrait",
   "icons": [
     {
